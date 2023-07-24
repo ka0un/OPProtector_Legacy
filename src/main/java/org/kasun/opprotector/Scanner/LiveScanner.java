@@ -5,8 +5,7 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
-import org.kasun.opprotector.Configs.OperatorConfig;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Punishments.Ban;
 import org.kasun.opprotector.Utils.CommandExecutor;
 import org.kasun.opprotector.VerificationProcess.VerificationProcessManager;
@@ -22,7 +21,7 @@ public class LiveScanner {
     }
 
     public void start() {
-        OPProtector plugin = OPProtector.getInstance();
+        OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
         int seconds = plugin.getMainManager().getConfigManager().getMainConfig().live_scanner_interval_secounds;
         Long period = (long) (seconds * 20);
         liveScannerTask = new BukkitRunnable() {
@@ -78,7 +77,7 @@ public class LiveScanner {
     }
 
     private void verify(Player player) {
-        OPProtector plugin = OPProtector.getInstance();
+        OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
         VerificationProcessManager verificationProcessManager = plugin.getMainManager().getVerificationProcessManager();
         verificationProcessManager.start(player);
     }

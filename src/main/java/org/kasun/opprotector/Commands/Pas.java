@@ -4,13 +4,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.kasun.opprotector.Configs.OperatorConfig;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Utils.Prefix;
 import org.kasun.opprotector.VerificationProcess.VerificationProcessManager;
 
 public class Pas implements CommandExecutor {
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -26,7 +25,7 @@ public class Pas implements CommandExecutor {
                         String correctPassword = plugin.getMainManager().getConfigManager().getOperatorConfig().getOperator(player.getName()).getPassword();
                         if (password.equals(correctPassword)) {
                             VerificationProcessManager verificationProcessManager = plugin.getMainManager().getVerificationProcessManager();
-                            verificationProcessManager.setTo2FA(player);
+                            verificationProcessManager.setVerified(player);
                             return true;
                         } else {
                             player.sendMessage(Prefix.ERROR + "Incorrect password.");

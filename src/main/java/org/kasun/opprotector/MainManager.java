@@ -1,7 +1,5 @@
 package org.kasun.opprotector;
 
-import org.kasun.opprotector.AuthObjects.IpTable;
-import org.kasun.opprotector.Configs.OperatorConfig;
 import org.kasun.opprotector.Scanner.LiveScanner;
 import org.kasun.opprotector.AuthObjects.TempAuth;
 import org.kasun.opprotector.Commands.CommandsManager;
@@ -19,9 +17,8 @@ public class MainManager {
     private CommandsManager commandsManager;
     private VerificationProcessManager verificationProcessManager;
     private LiveScanner liveScanner;
-    private IpTable ipTable;
     private Log log;
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     public MainManager() {
         configManager = new ConfigManager();
         listnerManager = new ListnerManager();
@@ -30,7 +27,6 @@ public class MainManager {
         tempAuth = new TempAuth();
         verificationProcessManager = new VerificationProcessManager();
         liveScanner = new LiveScanner();
-        ipTable = new IpTable();
         log = new Log();
 
     }
@@ -61,10 +57,6 @@ public class MainManager {
 
     public LiveScanner getLiveScanner() {
         return liveScanner;
-    }
-
-    public IpTable getIpTable() {
-        return ipTable;
     }
 
     public Log getLog() {

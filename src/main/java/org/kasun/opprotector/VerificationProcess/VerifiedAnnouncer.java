@@ -4,15 +4,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Utils.Prefix;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class VerifiedAnnouncer {
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     public VerifiedAnnouncer(Player player) {
         player.sendTitle(ChatColor.GREEN + "✔", ChatColor.YELLOW + "OPProtector", 10, 70, 20);
         Sound sound = Sound.BLOCK_NOTE_BLOCK_PLING;

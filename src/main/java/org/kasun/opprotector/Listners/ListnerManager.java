@@ -1,10 +1,9 @@
 package org.kasun.opprotector.Listners;
 
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 
 public class ListnerManager {
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     public ListnerManager() {
         plugin.getServer().getPluginManager().registerEvents(new PlayerJoin(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerMove(), plugin);

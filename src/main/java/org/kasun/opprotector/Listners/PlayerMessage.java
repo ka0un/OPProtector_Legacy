@@ -3,13 +3,13 @@ package org.kasun.opprotector.Listners;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Punishments.Lockdown;
 
 import java.util.List;
 
 public class PlayerMessage implements org.bukkit.event.Listener{
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     Lockdown lockdown;
 
     @EventHandler(priority = EventPriority.LOWEST)

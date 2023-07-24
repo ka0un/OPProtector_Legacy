@@ -1,14 +1,14 @@
 package org.kasun.opprotector.AuthObjects;
 
 import org.bukkit.entity.Player;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
 
 public class TempAuth {
     HashMap<String, Timestamp> authorizedPlayers;
-    private OPProtector plugin = OPProtector.getInstance();
+    private OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     public TempAuth() {
         authorizedPlayers = new HashMap<>();
     }

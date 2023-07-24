@@ -3,16 +3,14 @@ package org.kasun.opprotector.Configs;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MainConfig {
-    private final OPProtector plugin = OPProtector.getInstance();
+    private final OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     private File configFile;
     private FileConfiguration config;
 

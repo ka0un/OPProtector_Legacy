@@ -1,11 +1,11 @@
 package org.kasun.opprotector.Punishments;
 import org.bukkit.entity.Player;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import java.util.ArrayList;
 
 
 public class Lockdown {
-    private OPProtector plugin = OPProtector.getInstance();
+    private OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     private ArrayList<Player> lockedPlayers;
     private boolean allowflight;
     private boolean blockdamage;

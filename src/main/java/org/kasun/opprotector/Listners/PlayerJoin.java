@@ -4,7 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Utils.Log;
 import org.kasun.opprotector.VerificationProcess.VerificationProcessManager;
 
@@ -12,7 +12,7 @@ import org.kasun.opprotector.VerificationProcess.VerificationProcessManager;
 public class PlayerJoin implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e){
-        OPProtector plugin = OPProtector.getInstance();
+        OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
         Log log = plugin.getMainManager().getLog();
         boolean allow = plugin.getMainManager().getConfigManager().getMainConfig().scan_on_join;
 

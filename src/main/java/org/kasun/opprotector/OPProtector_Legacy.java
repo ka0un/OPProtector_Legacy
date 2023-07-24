@@ -3,10 +3,8 @@ package org.kasun.opprotector;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Map;
-
-public final class OPProtector extends JavaPlugin {
-    private static OPProtector instance;
+public final class OPProtector_Legacy extends JavaPlugin {
+    private static OPProtector_Legacy instance;
     private boolean isFirstTime;
     MainManager mainManager;
 
@@ -25,7 +23,7 @@ public final class OPProtector extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public static OPProtector getInstance() {
+    public static OPProtector_Legacy getInstance() {
         return instance;
     }
 

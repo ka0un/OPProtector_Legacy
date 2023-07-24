@@ -2,25 +2,21 @@ package org.kasun.opprotector.VerificationProcess;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
-import org.kasun.opprotector.AuthObjects.IpTable;
-import org.kasun.opprotector.Configs.OperatorConfig;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Punishments.Ban;
 import org.kasun.opprotector.Punishments.Lockdown;
 import org.kasun.opprotector.Utils.CommandExecutor;
-import org.kasun.opprotector.inventories.FactorsGuI;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class VerificationProcessManager {
-    static private OPProtector plugin = OPProtector.getInstance();
+    static private OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     private List<String> blacklistedPermissions;
     static PasswordFlash passwordFlash;
     private HashMap<String, VerificationStatus> verificationStatusMap;
     private boolean allowScanBlackListedPerms;
     private boolean allowScanCreative;
-    private IpTable ipTable;
 
 
 
@@ -83,34 +79,15 @@ public class VerificationProcessManager {
         verificationStatusMap.put(player.getName(), VerificationStatus.IN_PASSWORD_VERIFICATION);
         Lockdown lockdown = plugin.getMainManager().getPunishmentManager().getLockdown();
         lockdown.lockPlayer(player);
-        PasswordVerification passwordVerification = new PasswordVerification(player);
         passwordFlash = new PasswordFlash(player);
         passwordFlash.start();
 
     }
 
-    public void setTo2FA(Player player){
-        passwordFlash.stopTasks();
-        verificationStatusMap.put(player.getName(), VerificationStatus.IN_FACTOR_VERIFICATION);
-        plugin.getMainManager().getAuthorizedPlayers().addAuthorizedPlayer(player);
-
-        ipTable = plugin.getMainManager().getIpTable();
-        if (ipTable.IsContains(player) && ipTable.isIp(player)){
-            setVerified(player);
-            return;
-        }
-
-        if (ipTable.IsContains(player)){
-            plugin.getMainManager().getLog().loginfromDifferntIP(player, ipTable.getIp(player), player.getAddress().getAddress().getHostAddress());
-        }
-
-        FactorsGuI factorsGuI = new FactorsGuI();
-        factorsGuI.show(player);
-    }
 
     public void setVerified(Player player){
-        ipTable = plugin.getMainManager().getIpTable();
-        ipTable.addIp(player);
+        passwordFlash.stopTasks();
+
 
         Lockdown lockdown = plugin.getMainManager().getPunishmentManager().getLockdown();
         lockdown.unlockPlayer(player);

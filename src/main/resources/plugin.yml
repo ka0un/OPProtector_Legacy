@@ -1,7 +1,6 @@
-name: OPProtector
+name: OPProtector_Legacy
 version: '${project.version}'
-main: org.kasun.opprotector.OPProtector
-api-version: 1.13
+main: org.kasun.opprotector.OPProtector_Legacy
 commands:
   pas:
     description: Operator Password

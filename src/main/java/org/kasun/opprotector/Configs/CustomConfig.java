@@ -1,15 +1,10 @@
 package org.kasun.opprotector.Configs;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.kasun.opprotector.OPProtector;
-import java.io.*;
-import java.util.HashMap;
+import org.kasun.opprotector.OPProtector_Legacy;
 
 public class CustomConfig {
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     //private HashMap<String, Object> Messages;
-    private HashMap<String, Object> IpList;
-    private File fileIp;
-    //private File fileMsg;
     private YamlConfiguration yamlConfigurationIp;
     //private YamlConfiguration yamlConfigurationMsg;
 
@@ -22,34 +17,16 @@ public class CustomConfig {
     }
 
     private void loadConfig() {
-        //Messages = new HashMap<>();
-        IpList = new HashMap<>();
-        fileIp = new File(plugin.getDataFolder() + "/iplist.yml");
-        //fileMsg = new File(plugin.getDataFolder() + "/messages.yml");
-        yamlConfigurationIp = YamlConfiguration.loadConfiguration(fileIp);
-        //yamlConfigurationMsg = YamlConfiguration.loadConfiguration(fileMsg);
-        yamlConfigurationIp.getKeys(false).forEach(key -> {
-            IpList.put(key, yamlConfigurationIp.get(key));
-        });
-        //yamlConfigurationMsg.getKeys(false).forEach(key -> {
-        //    Messages.put(key, yamlConfigurationMsg.get(key));
-        //});
+
     }
 
 
     private void createconfigfiles() {
-        plugin.saveResource("iplist.yml", false);
-        //plugin.saveResource("messages.yml", false);
         plugin.saveResource("operators.yml", false);
     }
 
     public void saveIpList() {
-        IpList.forEach((key, value) -> {
-            yamlConfigurationIp.set(key, value);
-        });
-        try {
-            yamlConfigurationIp.save(fileIp);
-        } catch (Exception ignored) {}
+
     }
 
     /*public void saveMessages() {
@@ -63,9 +40,6 @@ public class CustomConfig {
 
      */
 
-    public HashMap<String, Object> getIpList() {
-        return IpList;
-    }
 
     /*
     public HashMap<String, Object> getMessages() {

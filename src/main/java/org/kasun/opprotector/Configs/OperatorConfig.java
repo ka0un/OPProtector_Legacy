@@ -1,21 +1,15 @@
 package org.kasun.opprotector.Configs;
 
-import com.sun.tools.javac.Main;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Utils.Encryption;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class OperatorConfig {
 
-    private OPProtector plugin = OPProtector.getInstance();
+    private OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
 
     private final String FILE_PATH = plugin.getDataFolder() + "/operators.yml";
 
@@ -50,8 +44,6 @@ public class OperatorConfig {
                     operator.setPassword(operatorData.get("password").toString());
 
                 }
-                operator.setEmail(operatorData.get("email").toString());
-                operator.setDiscord(operatorData.get("discord").toString());
                 operator.setCommandBlacklist((List<String>) operatorData.get("commandBlacklist"));
 
                 operatorDataMap.put(operatorName, operator);
@@ -81,8 +73,6 @@ public class OperatorConfig {
                 }else {
                     operatorData.put("password", operator.getPassword());
                 }
-                operatorData.put("email", operator.getEmail());
-                operatorData.put("discord", operator.getDiscord());
                 operatorData.put("commandBlacklist", operator.getCommandBlacklist());
 
                 data.put(operatorName, operatorData);

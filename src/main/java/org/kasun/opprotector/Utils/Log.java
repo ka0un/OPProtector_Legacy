@@ -1,7 +1,7 @@
 package org.kasun.opprotector.Utils;
 
 import org.bukkit.entity.Player;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -14,7 +14,7 @@ public class Log {
 
 
 
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     public Log() {
         // Get the current date and time
         Date currentDate = new Date();

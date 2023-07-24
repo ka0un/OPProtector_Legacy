@@ -6,9 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.kasun.opprotector.Configs.OperatorConfig;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.Punishments.Lockdown;
 import org.kasun.opprotector.Utils.Prefix;
 import org.kasun.opprotector.VerificationProcess.VerificationProcessManager;
@@ -17,7 +15,7 @@ import java.util.List;
 
 public class PlayerCommand implements Listener {
     Lockdown lockdown;
-    OPProtector plugin = OPProtector.getInstance();
+    OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerCommandProcess(PlayerCommandPreprocessEvent e){
         lockdown = plugin.getMainManager().getPunishmentManager().getLockdown();
@@ -72,7 +70,7 @@ public class PlayerCommand implements Listener {
         }
 
         if (e.getMessage().startsWith("/op")){
-            OPProtector plugin = OPProtector.getInstance();
+            OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
             boolean allow = plugin.getMainManager().getConfigManager().getMainConfig().scan_on_player_op_command;
 
             if (!allow) {return;}

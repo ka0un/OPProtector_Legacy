@@ -1,10 +1,9 @@
 package org.kasun.opprotector.Listners;
 
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.kasun.opprotector.OPProtector;
+import org.kasun.opprotector.OPProtector_Legacy;
 import org.kasun.opprotector.VerificationProcess.PasswordFlash;
 import org.kasun.opprotector.VerificationProcess.VerificationProcessManager;
 import org.kasun.opprotector.VerificationProcess.VerificationStatus;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 public class PlayerLeave implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerLeave(org.bukkit.event.player.PlayerQuitEvent e){
-        OPProtector plugin = OPProtector.getInstance();
+        OPProtector_Legacy plugin = OPProtector_Legacy.getInstance();
         VerificationProcessManager verificationProcessManager = plugin.getMainManager().getVerificationProcessManager();
         HashMap<String, VerificationStatus> verificationStatusMap = verificationProcessManager.getVerificationStatusMap();
         if (plugin.getServer().getOnlinePlayers().size() == 1) {
